@@ -1,12 +1,19 @@
-import styled from '@emotion/styled';
+import { getFlipBook } from '@/ssg/flipbookcontent';
+import { InferGetStaticPropsType } from 'next';
 import React from 'react';
+import { FlipBook } from './flipbook';
 
-const Header = styled.div `
-    font-size: 48px;
-`
+const projectsPage = ({ content }: InferGetStaticPropsType<typeof getStaticProps>) => {
+    return (
+        <FlipBook pages={content}></FlipBook>
+    );
+};
+export const getStaticProps = () => {
+    return {
+        props: {
+            content: getFlipBook(),
+        },
+    };
+};
 
-const HomePage = () => (
-    <Header>Elo</Header>
-)
-
-export default HomePage;
+export default projectsPage;
