@@ -7,7 +7,7 @@ important:
   -p2: Niedostarczenie dokumentów w wyznaczonym terminie oznacza rezygnację z podjęcia studiów.
 ---
 
-# Dokumenty rekrytacyjne
+# Dokumenty rekrutacyjne
 
 > Kandydat na studia pierwszego stopnia powinien dostarczyć następujące dokumenty:
 
