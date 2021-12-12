@@ -22,7 +22,7 @@ const WrapperInput = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 15%;
+    width: 20%;
     .hidden{
         display: none;
     }
@@ -32,13 +32,15 @@ const WrapperText = styled.div`
     flex-direction: column;
     gap: 20px;
     width: 40%;
+    color: white;
 `;
 const Input = styled.input`
     border: none;
-    border-bottom: 2px solid #00610b;
+    border-bottom: 2px solid #012404;
 `;
 const Button = styled.button`
-    background-color: #00610b;
+    color: white;
+    background-color: #012404;
     height: 3rem;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -122,8 +124,8 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
             <WrapperInput>
                 <Input id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
                 <Input id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
-                <Input id="OP" placeholder="Wynik z nowożytny podstawowy"></Input>
-                <Input id="OR" placeholder="Wynik z nowożytny rozszerzony"></Input>
+                <Input id="OP" placeholder="Wynik z język nowożytny podstawowy"></Input>
+                <Input id="OR" placeholder="Wynik z język nowożytny rozszerzony"></Input>
                 <Input id="FR" placeholder="Wynik z rozszerzonej fizyki"></Input>
                 <Input id="CR" placeholder="Wynik z rozszerzonej chemii"></Input>
                 <Input id="IR" placeholder="Wynik z rozszerzonej informatyki"></Input>
@@ -133,13 +135,13 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
             </WrapperInput>
 
             <WrapperText>
-                <div className="flex flex-row">
+                <div className="flex flex-row bg-pb p-2">
                     Wybrany kierunek:<div className="ml-1" id="nazwa"></div>
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row bg-pb p-2">
                     Wzór na wybrany kierunek: <div className="ml-1" id="wzor"></div>
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row bg-pb p-2">
                     Ilość uzyskanych punktów:<div className="ml-1" id="wynik"></div>
                 </div>
             </WrapperText>
