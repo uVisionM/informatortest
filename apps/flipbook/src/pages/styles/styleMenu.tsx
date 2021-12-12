@@ -12,14 +12,15 @@ export const Cos = styled.div`
         font-family: sans-serif;
         margin: 0;
         padding: 10px;
+
     }
 
     .dropdown {
         margin: 0;
         padding: 0;
         list-style: none;
-        width: 100px;
-        background-color: #0abf53;
+        width: 100%;
+        background-color: #012404;
     }
 
     .dropdown li {
@@ -55,7 +56,7 @@ export const Cos = styled.div`
     }
 
     .dropdown li ul li a:hover {
-        background-color: #0abf53;
+        background-color: #012404;
         color: #ffffff;
     }
 
@@ -65,7 +66,7 @@ export const Cos = styled.div`
     }
 
     ul li:hover > a {
-        background-color: #0abf53;
+        background-color: #012404;
         color: #ffffff !important;
     }
 

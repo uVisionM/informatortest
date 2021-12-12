@@ -7,7 +7,6 @@ import DOMPurify from 'isomorphic-dompurify';
 export const test = () => {
     const path1 = path.join(process.cwd(), '..', '..', 'content', '2021', 'wydzialy');
     const projectsDirectoryFiles = fs.readdirSync(path1);
-
     const withGrayMatter = projectsDirectoryFiles.map((adf1) => {
         const path2 = path.join(process.cwd(), '..', '..', 'content', '2021', 'wydzialy', adf1)
         const path2e = fs.readdirSync(path2);
@@ -18,8 +17,7 @@ export const test = () => {
         let cleaned = Array<any>();
         path2e.map((adf2) => {
             realPath = path.join(path2, adf2);
-            const path3e = fs.readdirSync(realPath);
-            
+            const path3e = fs.readdirSync(realPath);     
             path3e.map((adf3) => {
                 realPath = path.join(path2, adf2, adf3);
                 slug.push(adf3.replace('.md', ''));

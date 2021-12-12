@@ -8,8 +8,7 @@ pageNumber: 26
 
 ### Brak wyniku z matury z któregokolwiek przedmiotu nie stanowi przeszkody w ubieganiu się o przyjęcie na studia na Politechnice Białostockiej, ale do ogólnej punktacji przyjmowane jest zero punktów za ten przedmiot.
 
-- dla kandydatów ubiegających się o przyjęcie na kierunki, na których obowiązuje egzamin wstępny z rysunku:
- (L = 0,5*M_{P}+ 1,25M $_R$ + 1,75F $_R$ + 0,25O $_P$ + 0,75O $_R$ + 4R)
+- dla kandydatów ubiegających się o przyjęcie na kierunki, na których obowiązuje egzamin wstępny z rysunku: L = 0,5M $_P$ + 1,25M $_R$ + 1,75F $_R$ + 0,25O $_P$ + 0,75O $_R$ + 4R
 - dla kandydatów ubiegających się o przyjęcie na kierunki:
   automatyka i robotyka, inżynieria biomedyczna, inżynieria materiałowa
   i wytwarzania, mechanika i budowa maszyn, mechatronika: L = 0,5M $_P$ + 1,25M $_R$ + W $_R$\*F $_R$ + 0,25O $_P$ + 0,75OR

@@ -73,7 +73,7 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
 
     return (
         <Wrapper>
-            <div className="container stop-scrolling">
+            <div className="stop-scrolling">
                 <MarkdownContentPages>
                     <div id="flipbook-container">
                         <div className="page page-cover page-cover-top" data-density="hard">
