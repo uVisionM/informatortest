@@ -1,5 +1,5 @@
 import { PageFlip } from 'page-flip';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Wrapper } from './styles/styleBook';
 import { MarkdownContentPages }from './styles/styleMD';
 interface IFlipBook {
@@ -24,15 +24,10 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             startZIndex: 0,
             mobileScrollSupport: true,
         });
-
         pages.sort((a, b) => a.changedToMatter.pageNumber - b.changedToMatter.pageNumber);
-        pages.map((page) => {
-            console.log(page.changedToMatter.pageNumber);
-        });
-
-    
 
         let loc = document.getElementById('page-storage')
+
         for (let i = 0; i < pages.length; i++)
         {
             let page = document.createElement('div')
