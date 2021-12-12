@@ -4,15 +4,16 @@ import { Cos } from './styles/styleMenu';
 
 interface PFlipBook {
     test: Array<{
-        slug: any[];
-        dir: any[];
-        changed: any[];
-        cleaned: any[];
+        slug: string[];
+        dir: string[];
+        changed: {
+            [key: string]: any;
+        };
+        cleaned: string[];
     }>;
 }
 export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
     useEffect(() => {
-        
         let prev = '';
         test.map((t) => {
             t.dir.map((m) => {
@@ -31,13 +32,31 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                     pageText4.innerHTML = s[0].toUpperCase() + s.substring(1).replaceAll('_', ' ');
                     pageText4.className = s;
                     pageText4.addEventListener('click', ()=>{
-                        alert('Wybrales wzor na kierunek ' + s.replaceAll('_', ' '));
-                        t.changed.map((c)=>{
-                            if(c.name === s[0].toUpperCase() + s.substring(1).replaceAll('_', ' '))
-                            {
-                                const ans = c.equation;
-                                document.getElementById('wzor')!.innerHTML = ans;
+                        console.log('Wybrales wzor na kierunek ' + s.replaceAll('_', ' '));
+                        t.changed.map((c: { name: string; equation: string; })=>{
+                            console.log(c.name)
+                            if (
+                                c.name
+                                    .toLowerCase()
+                                    .replaceAll('ę', 'e')
+                                    .replaceAll('ż', 'z')
+                                    .replaceAll('ś', 's')
+                                    .replaceAll('ł', 'l') === s.toLowerCase().replaceAll('_', ' ')
+                            ) {
+                                document.getElementById('nazwa')!.innerHTML = c.name;
+                                document.getElementById('wzor')!.innerHTML = c.equation;
                             }
+                            t.dir.map((m)=>{
+                                let hidden = document.getElementById('R');
+                                hidden!.style.border = "none"
+                                hidden!.style.borderBottom = "2px solid #00610b"
+                                if(m === 'architektury')
+                                {
+                                    hidden!.className = '';
+                                } else {
+                                    hidden!.className = 'hidden';
+                                }
+                            })
                         })
                     })
                     pageText3.appendChild(pageText4);
@@ -47,10 +66,7 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                 loc!.appendChild(pageText);
                 loc = document.querySelector('.' + m);
                 loc!.appendChild(pageText2);
-                
             });
-           
-        
         });
     });
 

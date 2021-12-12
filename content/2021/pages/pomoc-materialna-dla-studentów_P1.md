@@ -19,6 +19,7 @@ onImgContent:
     - content5: zwiększenie stypendium socjalnego
     - value5: 210 zł
 ---
+
 ## Pomoc materialna dla studentów
 
 Studenci Politechniki Białostockiej kształcący się na studiach pierwszego i drugiego stopnia w trybie stacjonarnym lub niestacjonarnym mogą korzystać z różnych form wsparcia finansowego. Jest ono udzielane na podstawie ustawy Prawo o szkolnictwie wyższym i nauce oraz Regulaminu świadczeń dla studentów i doktorantów Politechniki Białostockiej.

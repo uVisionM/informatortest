@@ -16,19 +16,26 @@ e-mail: rekrutacja@pb.edu.pl
 Niezbędne informacje znajdziesz również na stronie
 [pb.edu.pl/kandydaci.](https://pb.edu.pl/kandydaci)
 
-🔍 zapoznaj się z ofertą kierunków
+![lupa](./content/2021/img/lupa.png)
+zapoznaj się z ofertą kierunków
 
-💻 zarejestruj się w systemie Internetowej Rejestracji Kandydatów irk.pb.edu.pl i wprowadź dane osobowe
+![monitor z akronimem IRK](/images)
+zarejestruj się w systemie Internetowej Rejestracji Kandydatów irk.pb.edu.pl i wprowadź dane osobowe
 
-📲 wprowadź wyniki z części pisemnej egzaminu maturalnego wyrażone w procentach – system sam je przeliczy
+![kalkulator](/images)
+wprowadź wyniki z części pisemnej egzaminu maturalnego wyrażone w procentach – system sam je przeliczy
 
-📝 zapisz się na wybrany kierunek/kierunki studiów
+![dokument ](/images)
+zapisz się na wybrany kierunek/kierunki studiów
 
-💰 wnieś opłatę rekrutacyjną na wygenerowany w IRK indywidualny numer konta bankowego wszystkie czynności wykonuj zgodnie z instrukcjami oraz harmonogramem rekrutacji
+![stos monet](/images)
+wnieś opłatę rekrutacyjną na wygenerowany w IRK indywidualny numer konta bankowego wszystkie czynności wykonuj zgodnie z instrukcjami oraz harmonogramem rekrutacji
 
-🖊️ zdaj egzamin wstępny z rysunku, jeśli kandydujesz na kierunki, na których jest on wymagany
+![pędzel,pióro,ołowek](/images)
+zdaj egzamin wstępny z rysunku, jeśli kandydujesz na kierunki, na których jest on wymagany
 
-⏰ wszystkie czynności wykonuj zgodnie z instrukcjami oraz harmonogramem rekrutacji
+![budzik](/images)
+wszystkie czynności wykonuj zgodnie z instrukcjami oraz harmonogramem rekrutacji
 
 Obejrzyj wideo :
 [https://bit.ly/rekrutacja-krok-po-kroku](https://bit.ly/rekrutacja-krok-po-kroku)

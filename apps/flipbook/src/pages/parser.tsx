@@ -16,26 +16,48 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     gap: 20px;
+    justify-content: center;
 `;
 const WrapperInput = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
     width: 15%;
+    .hidden{
+        display: none;
+    }
 `
+const WrapperText = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40%;
+`;
 const Input = styled.input`
-
-`
+    border: none;
+    border-bottom: 2px solid #00610b;
+`;
 const Button = styled.button`
-
-`
+    background-color: #00610b;
+    height: 3rem;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-radius: 5rem;
+    border: 2px solid;
+    border-color: black;
+    :hover {
+        opacity: 0.5;
+    }
+`;
 
 interface PFlipBook {
     test: Array<{
-        slug: any[];
-        dir: any[];
-        changed: any[];
-        cleaned: any[]
+        slug: string[];
+        dir: string[];
+        changed: {
+            [key: string]: any;
+        };
+        cleaned: string[];
     }>;
 }
 
@@ -63,7 +85,6 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
             for (let i = 0; i < array.length; i++) {
                 const val = (document.getElementById(array[i].symbol) as HTMLInputElement)?.value;
                 array[i].result = Number(val);
-                
             }
             for (let i = 0; i < inSubjects.length; i++) {
                 const val = (document.getElementById(inSubjects[i].symbol) as HTMLInputElement)?.value;
@@ -82,7 +103,7 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
                 array.push({ symbol: 'FR', result: inSubjects[0].result });
             } else return null;
             const val = (document.getElementById('R') as HTMLInputElement)?.value;
-            array.push({ symbol: 'R', result: Number(val)})
+            array.push({ symbol: 'R', result: Number(val) });
             const ans = Parser(wzor, array); //suma punktów (output)
             console.log(ans);
             document.getElementById('wynik')!.innerHTML = ans;
@@ -95,6 +116,9 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
 
     return (
         <Wrapper>
+            <Cos>
+                <DropdownMenu test={test}></DropdownMenu>
+            </Cos>
             <WrapperInput>
                 <Input id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
                 <Input id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
@@ -104,16 +128,22 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
                 <Input id="CR" placeholder="Wynik z rozszerzonej chemii"></Input>
                 <Input id="IR" placeholder="Wynik z rozszerzonej informatyki"></Input>
                 <Input id="BR" placeholder="Wynik z rozszerzonej biologii"></Input>
-                <Input id="R" placeholder="Wynik z egzaminu z rysunku"></Input>
+                <Input id="R" className="hidden" placeholder="Wynik z egzaminu z rysunku"></Input>
                 <Button id="button">Przelicz punkty</Button>
             </WrapperInput>
-            <div id="wzor"></div>
-            <div id="wynik"></div>
-            <div id="kierunki"></div>
 
-            <Cos>
-                <DropdownMenu test={test}></DropdownMenu>
-            </Cos>
+            <WrapperText>
+                <div className="flex flex-row">
+                    Wybrany kierunek:<div className="ml-1" id="nazwa"></div>
+                </div>
+                <div className="flex flex-row">
+                    Wzór na wybrany kierunek: <div className="ml-1" id="wzor"></div>
+                </div>
+                <div className="flex flex-row">
+                    Ilość uzyskanych punktów:<div className="ml-1" id="wynik"></div>
+                </div>
+            </WrapperText>
+            <div id="kierunki"></div>
         </Wrapper>
     );
     
