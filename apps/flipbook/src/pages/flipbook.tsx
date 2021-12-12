@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import { PageFlip } from 'page-flip';
 import { useEffect } from 'react';
 import { Wrapper } from './styles/styleBook';
@@ -11,7 +12,20 @@ interface IFlipBook {
     }>;
 }
 
-
+const Btn = styled.button`
+    color: white;
+    background-color: #012404;
+    height: 3rem;
+    width: 5rem;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-radius: 5rem;
+    border: 2px solid;
+    border-color: black;
+    :hover {
+        opacity: 0.5;
+    }
+`;
 export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
     useEffect(() => {
         const pageFlip = new PageFlip(document.getElementById('flipbook-container')!, {
@@ -78,7 +92,7 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
                     <div id="flipbook-container">
                         <div className="page page-cover page-cover-top" data-density="hard">
                             <div className="page-content">
-                               <h1>Informator Politechniki Białostockiej</h1>
+                                <h1>Informator Politechniki Białostockiej</h1>
                             </div>
                         </div>
 
@@ -92,10 +106,16 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
                     </div>
                 </MarkdownContentPages>
 
-                <div id="page-counter">
-                    <button id="prev">Wstecz</button>
-                    Strona <div id="page-current">1</div> z <div id="page-total">-</div>
-                    <button id="next">Naprzód</button>
+                <div className="flex flex-row " id="page-counter">
+                    <Btn className="mr-4" id="prev">
+                        Wstecz
+                    </Btn>
+                    <div className="flex flex-row gap-1 mt-8">
+                        Strona <div id="page-current">1</div> z <div id="page-total">-</div>
+                    </div>
+                    <Btn className="ml-4" id="next">
+                        Naprzód
+                    </Btn>
                 </div>
             </div>
         </Wrapper>
