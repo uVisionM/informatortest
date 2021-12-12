@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Slugger } from "marked";
 import { useEffect } from "react";
 import { DropdownMenu } from "./dropdown";
 import { Cos } from "./styles/styleMenu";
@@ -32,13 +31,6 @@ const Button = styled.button`
 `
 
 interface PFlipBook {
-    pages: Array<{
-        clean: string;
-        changedToMatter: {
-            [key: string]: any;
-        };
-        slug: string;
-    }>;
     test: Array<{
         slug: any[];
         dir: any[];
@@ -47,7 +39,7 @@ interface PFlipBook {
     }>;
 }
 
-export const HParser: React.FC<PFlipBook> = ({ pages, test }) => {
+export const HParser: React.FC<PFlipBook> = ({ test }) => {
 
     let inSubjects = [
         { symbol: 'FR', result: 0 }, //Fizyka roz. (input)

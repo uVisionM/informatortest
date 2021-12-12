@@ -6,11 +6,11 @@ import React from 'react';
 import { FlipBook } from './flipbook';
 import { HParser } from './parser'
 
-const projectsPage = ({ content, contentparser, test }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const projectsPage = ({ content, test }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <>
         <FlipBook pages={content}></FlipBook>
-        <HParser pages={contentparser} test={test}/>
+        <HParser test={test}/>
         </>
     );
 };
