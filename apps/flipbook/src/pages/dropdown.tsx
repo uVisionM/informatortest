@@ -25,37 +25,42 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                     pageText.appendChild(pageText1);
                     prev = m;
                 }
+                let i = 0;
                 let pageText2 = document.createElement('ul');
                 t.slug.map((s) => {
                     let pageText3 = document.createElement('li');
                     let pageText4 = document.createElement('a');
                     pageText4.innerHTML = s[0].toUpperCase() + s.substring(1).replaceAll('_', ' ');
                     pageText4.className = s;
-                    pageText4.addEventListener('click', ()=>{
-                        t.changed.map((c: { name: string; equation: string; })=>{
-                            if (
-                                c.name
-                                    .toLowerCase()
-                                    .replaceAll('ę', 'e')
-                                    .replaceAll('ż', 'z')
-                                    .replaceAll('ś', 's')
-                                    .replaceAll('ł', 'l') === s.toLowerCase().replaceAll('_', ' ')
-                            ) {
-                                document.getElementById('nazwa')!.innerHTML = c.name;
-                                document.getElementById('wzor')!.innerHTML = c.equation;
+                    pageText4.id = i.toString();
+                    i++
+                    pageText4.addEventListener('click', (e:any)=>{
+                        const loc = document.getElementById('opis');
+                        loc!.innerHTML = t.cleaned[e.target.id];
+                        loc!.className = 'flex flex-row bg-pb p-2 mb-10';
+                        t.changed.map((c: { name: string; equation: string }) => {
+                        if (
+                            c.name
+                                .toLowerCase()
+                                .replaceAll('ę', 'e')
+                                .replaceAll('ż', 'z')
+                                .replaceAll('ś', 's')
+                                .replaceAll('ł', 'l') === s.toLowerCase().replaceAll('_', ' ')
+                        ) {
+                            document.getElementById('nazwa')!.innerHTML = c.name;
+                            document.getElementById('wzor')!.innerHTML = c.equation;
+                        }
+                        t.dir.map((m) => {
+                            let hidden = document.getElementById('R');
+                                hidden!.style.border = 'none';
+                                hidden!.style.borderBottom = '2px solid #00610b';
+                            if (m === 'architektury') {
+                                hidden!.className = '';
+                            } else {
+                                hidden!.className = 'hidden';
                             }
-                            t.dir.map((m)=>{
-                                let hidden = document.getElementById('R');
-                                hidden!.style.border = "none"
-                                hidden!.style.borderBottom = "2px solid #00610b"
-                                if(m === 'architektury')
-                                {
-                                    hidden!.className = '';
-                                } else {
-                                    hidden!.className = 'hidden';
-                                }
-                            })
-                        })
+                            });
+                        });
                     })
                     pageText3.appendChild(pageText4);
                     pageText2.appendChild(pageText3);

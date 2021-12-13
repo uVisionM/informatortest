@@ -95,8 +95,8 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
                 <div className="flex flex-row bg-pb p-2">
                     Ilość uzyskanych punktów:<div className="ml-1" id="wynik"></div>
                 </div>
+                <div className="flex flex-row p-2" id="opis"></div>
             </WrapperText>
-            <div id="kierunki"></div>
         </Wrapper>
     );
     
