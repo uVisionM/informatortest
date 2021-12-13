@@ -33,6 +33,12 @@ const LogoPB: React.FC<{src: string}> = ({src}) => <img
     className = "object-contain" 
     src={src} />
 
+enum SizeType {
+    /** Dimensions are fixed */
+    FIXED = "fixed",
+    /** Dimensions are calculated based on the parent element */
+    STRETCH = "stretch"
+}
 
 export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
     useEffect(() => {
@@ -45,6 +51,11 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             autoSize: true,
             startZIndex: 0,
             mobileScrollSupport: true,
+            size: SizeType.STRETCH,
+            minWidth:280,
+            maxWidth:800,
+            minHeight:300,
+            maxHeight:800,
         });
         pages.sort((a, b) => a.changedToMatter.pageNumber - b.changedToMatter.pageNumber);
 
@@ -85,11 +96,12 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             loc!.innerHTML = (pageFlip.getCurrentPageIndex() + 1).toString();
         })
         pageFlip.loadFromHTML(document.querySelectorAll('.page')); 
+        
     });
 
     return (
         <Wrapper>
-            <div className="stop-scrolling">
+            <div className="stop-scrolling max-w-full">
                 <MarkdownContentPages>
                     <div id="flipbook-container">
                         <div className="page page-cover" data-density="hard">
