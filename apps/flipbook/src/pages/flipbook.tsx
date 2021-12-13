@@ -15,7 +15,7 @@ interface IFlipBook {
 const Btn = styled.button`
     color: white;
     background-color: #012404;
-    height: 3rem;
+    height: 2rem;
     width: 5rem;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -26,6 +26,14 @@ const Btn = styled.button`
         opacity: 0.5;
     }
 `;
+
+
+const logo = 'images/logo_PB.png';
+const LogoPB: React.FC<{src: string}> = ({src}) => <img
+    className = "object-contain" 
+    src={src} />
+
+
 export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
     useEffect(() => {
         const pageFlip = new PageFlip(document.getElementById('flipbook-container')!, {
@@ -84,10 +92,11 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             <div className="stop-scrolling">
                 <MarkdownContentPages>
                     <div id="flipbook-container">
-                        <div className="page page-cover page-cover-top" data-density="hard">
-                            <div className="page-content">
-                                <h1>Informator Politechniki Białostockiej</h1>
-                            </div>
+                        <div className="page page-cover" data-density="hard">
+                            <h1>
+                            <LogoPB src="images/logo_pb.png" />
+                            </h1>
+                                    
                         </div>
 
                         <div id="page-storage"></div>
@@ -99,12 +108,11 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
                         </div>
                     </div>
                 </MarkdownContentPages>
-
                 <div className="flex flex-row " id="page-counter">
                     <Btn className="mr-4" id="prev">
                         Wstecz
                     </Btn>
-                    <div className="flex flex-row gap-1 mt-8">
+                    <div className="flex flex-row gap-1 mt-6">
                         Strona <div id="page-current">1</div> z <div id="page-total">-</div>
                     </div>
                     <Btn className="ml-4" id="next">

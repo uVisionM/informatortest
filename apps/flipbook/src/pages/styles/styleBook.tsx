@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
     }
     .page {
         background-color: white;
-        border: solid 1px #c2b5a3;
+        border: solid 1px #012404;
         overflow: auto;
         .page-content {
             width: 95%;
@@ -51,9 +51,9 @@ export const Wrapper = styled.div`
 
             .page-footer {
                 height: 30px;
-                border-top: solid 1px #f4e8d7;
+                border-top: solid 1px #012404;
                 font-size: 80%;
-                color: #998466;
+                color: #012404;
                 border-bottom: 20px;
             }
         }
@@ -75,19 +75,22 @@ export const Wrapper = styled.div`
 
         &.hard {
             // for hard page
-            background-color: #f2e8d9;
-            border: solid 1px #998466;
+            background-color: #012404;
+            border: solid 1px #012404;
         }
 
         &.page-cover {
-            background-color: #e3d0b5;
-            color: #785e3a;
-            border: solid 1px #998466;
+            background-color: #012404;
+            color: white;
+            border: solid 1px #012404;
 
             h1 {
-                text-align: center;
-                padding-top: 50%;
-                font-size: 210%;
+                width: 50%;
+                height: 50%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 5rem;
+                
             }
 
             &.page-cover-top {
