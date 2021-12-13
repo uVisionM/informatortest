@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import DOMPurify from 'isomorphic-dompurify';
 
-export const test = () => {
+export const LParser = () => {
     const path1 = path.join(process.cwd(), '..', '..', 'content', '2021', 'wydzialy');
     const projectsDirectoryFiles = fs.readdirSync(path1);
     const withGrayMatter = projectsDirectoryFiles.map((adf1) => {

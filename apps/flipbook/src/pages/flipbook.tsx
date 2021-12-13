@@ -55,12 +55,6 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             page.appendChild(pageContent)
             loc!.appendChild(page)
         }
-        pageFlip.on('changeState', (e) => {
-            if(e.data === 'fold_corner')
-            {
-                console.log(pageFlip.getCurrentPageIndex());
-            }
-        });
         pageFlip.on('changeState', () => {
             loc = document.getElementById('page-current');
             loc!.innerHTML = (pageFlip.getCurrentPageIndex()+1).toString();

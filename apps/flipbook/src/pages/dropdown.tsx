@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import { Cos } from './styles/styleMenu';
+import { StyleMenu } from './styles/styleMenu';
 
 interface PFlipBook {
     test: Array<{
@@ -32,9 +32,7 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                     pageText4.innerHTML = s[0].toUpperCase() + s.substring(1).replaceAll('_', ' ');
                     pageText4.className = s;
                     pageText4.addEventListener('click', ()=>{
-                        console.log('Wybrales wzor na kierunek ' + s.replaceAll('_', ' '));
                         t.changed.map((c: { name: string; equation: string; })=>{
-                            console.log(c.name)
                             if (
                                 c.name
                                     .toLowerCase()
@@ -69,9 +67,8 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
             });
         });
     });
-
     return (
-        <Cos>
+        <StyleMenu>
             <ul className="dropdown">
                 <li>
                     <a href="#">Lista kierunków</a>
@@ -80,6 +77,6 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                     </ul>
                 </li>
             </ul>
-        </Cos>
+        </StyleMenu>
     );
 };

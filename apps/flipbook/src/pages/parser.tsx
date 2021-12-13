@@ -1,8 +1,6 @@
-import styled from "@emotion/styled";
 import { useEffect } from "react";
 import { DropdownMenu } from "./dropdown";
-import { Cos } from "./styles/styleMenu";
-
+import { Wrapper, WrapperInput, WrapperText, Input, Button } from './styles/styleParser';
 const Parser = (q: string, subjects: Array<{ symbol: string; result: number }>) => {
     let s = q;
 
@@ -11,47 +9,6 @@ const Parser = (q: string, subjects: Array<{ symbol: string; result: number }>) 
     });
     return eval(s);
 };
-
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
-`;
-const WrapperInput = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 20%;
-    .hidden{
-        display: none;
-    }
-`
-const WrapperText = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 40%;
-    color: white;
-`;
-const Input = styled.input`
-    border: none;
-    border-bottom: 2px solid #012404;
-`;
-const Button = styled.button`
-    color: white;
-    background-color: #012404;
-    height: 3rem;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    border-radius: 5rem;
-    border: 2px solid;
-    border-color: black;
-    :hover {
-        opacity: 0.5;
-    }
-`;
-
 interface PFlipBook {
     test: Array<{
         slug: string[];
@@ -62,28 +19,23 @@ interface PFlipBook {
         cleaned: string[];
     }>;
 }
-
 export const HParser: React.FC<PFlipBook> = ({ test }) => {
-
     let inSubjects = [
         { symbol: 'FR', result: 0 }, //Fizyka roz. (input)
         { symbol: 'CR', result: 0 }, //Chemia roz. (input)
         { symbol: 'IR', result: 0 }, //Informatyka roz. (input)
         { symbol: 'BR', result: 0 }, //Biologia roz. (input)
     ];
-
     let array = [
         { symbol: 'MP', result: 0 }, //Matematyka podstawowa (input)
         { symbol: 'MR', result: 0 }, //Matematyka rozszerzona (input)
         { symbol: 'OP', result: 0 }, //Język obcy nowożytny podst. (input)
         { symbol: 'OR', result: 0 }, //Język obcy nowożytny roz. (input)
     ];
-
     useEffect(() => {
         const btn = document.getElementById('button');
         btn!.addEventListener('click', () => {
             const wzor = document.getElementById('wzor')!.innerHTML;
-            console.log(wzor);
             for (let i = 0; i < array.length; i++) {
                 const val = (document.getElementById(array[i].symbol) as HTMLInputElement)?.value;
                 array[i].result = Number(val);
@@ -106,21 +58,20 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
             } else return null;
             const val = (document.getElementById('R') as HTMLInputElement)?.value;
             array.push({ symbol: 'R', result: Number(val) });
-            const ans = Parser(wzor, array); //suma punktów (output)
-            console.log(ans);
+            let ans = Parser(wzor, array); //suma punktów (output)
+            if (ans === undefined) {
+                alert('Wybierz kierunek na który chcesz przeliczyć punkty !!');
+                ans = 'Brak wybranego kierunku !';
+            }
             document.getElementById('wynik')!.innerHTML = ans;
             array.pop();
             array.pop();
             array.pop();
         });
-    
     });
-
     return (
         <Wrapper>
-            <Cos>
-                <DropdownMenu test={test}></DropdownMenu>
-            </Cos>
+            <DropdownMenu test={test}></DropdownMenu>
             <WrapperInput>
                 <Input id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
                 <Input id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
