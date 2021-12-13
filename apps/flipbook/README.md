@@ -1,23 +1,27 @@
-# Getting started
+# Informator Politechniki Białostockiej
 
-Download the repo
+Repozytorium nowego informatora Politechniki Białostockiej.
 
+## Jak zacząć
+
+Ściągnij te repozytorium
 ```sh
-npm i
+$ git clone https://github.com/jamstackpb/informatorpb
 ```
 
+Zainstaluj zależoności
 ```sh
-npm run dev
+$ npm i
 ```
 
-## Envs
-
-Create Your own .env.development and .env.production files in root folder to define environment variables for development and production in this format:
+## Uruchamianie
 
 ```sh
-NEXT_PUBLIC_HOST=https://somegraphqlbackend.com/graphql
+$ npm run dev
 ```
 
-## Concepts
-
-This repo boilerplate uses nextjs TypeScript Emotion and zeus
+## Technologie
+- markdown
+- TypeScript
+- ReactJS
+- NextJS
