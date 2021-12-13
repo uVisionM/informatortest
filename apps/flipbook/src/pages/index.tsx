@@ -1,5 +1,5 @@
 import { getFlipBook } from '@/ssg/flipbookcontent';
-import { test } from '@/ssg/test';
+import { LParser } from '@/ssg/parser';
 import { InferGetStaticPropsType } from 'next';
 import React from 'react';
 import { FlipBook } from './flipbook';
@@ -36,7 +36,7 @@ export const getStaticProps = () => {
     return {
         props: {
             content: getFlipBook(),
-            test: test(),
+            test: LParser(),
         },
     };
 };

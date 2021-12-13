@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Cos = styled.div`
+export const StyleMenu = styled.div`
     *,
     *::before,
     *::after {
