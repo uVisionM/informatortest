@@ -37,7 +37,7 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                     pageText4.addEventListener('click', (e:any)=>{
                         const loc = document.getElementById('opis');
                         loc!.innerHTML = t.cleaned[e.target.id];
-                        loc!.className = 'flex flex-row bg-pb p-2';
+                        loc!.className = 'flex flex-row bg-pb p-2 mb-10';
                         t.changed.map((c: { name: string; equation: string }) => {
                         if (
                             c.name
