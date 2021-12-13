@@ -10,9 +10,7 @@ const Copyright: React.FC = ({ children }) => {
 export const Footer: React.FC = () => {
     return (
         <Container>
-            <Copyright>
-                Copyright: Aleksander Bondar, Marcin Falkowski - Aexol
-            </Copyright>
+            <Copyright>Copyright ©: Aleksander Bondar, Marcin Falkowski - Aexol</Copyright>
         </Container>
     );
 };

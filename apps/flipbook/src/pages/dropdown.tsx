@@ -49,6 +49,7 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                         ) {
                             document.getElementById('nazwa')!.innerHTML = c.name;
                             document.getElementById('wzor')!.innerHTML = c.equation;
+                            document.getElementById('wynik')!.innerHTML = '0';
                         }
                         t.dir.map((m) => {
                             let hidden = document.getElementById('R');
