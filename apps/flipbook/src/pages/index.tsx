@@ -6,6 +6,8 @@ import { FlipBook } from './flipbook';
 import { HParser } from './parser'
 import styled from '@emotion/styled';
 import { Header }  from './header'
+import { Footer } from './footer'
+import { Socialmedia } from './socialmedia';
 
 const Napis = styled.div`
     width:50%;
@@ -24,10 +26,13 @@ const projectsPage = ({ content, test }: InferGetStaticPropsType<typeof getStati
     return (
         <div>
             <Header></Header>
-            <Napis>Sprawdź nas!</Napis>
+            <Napis>Informator</Napis>
             <FlipBook pages={content}></FlipBook>
             <Napis>Przelicz swoje punkty !</Napis>
             <HParser test={test} />
+            <Napis>Sprawdź nas!</Napis>
+            <Socialmedia></Socialmedia>
+            <Footer></Footer>
         </div>
         
     );
