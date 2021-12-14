@@ -68,20 +68,33 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
             array.pop();
             array.pop();
         });
+        var inputs = document.getElementsByName('input');
+        inputs.forEach(input => {
+            input!.addEventListener('input', (e) => {
+            if (Number((e.target as HTMLInputElement).value) < 0) {
+                (e.target as HTMLInputElement).value = "0";
+                alert('Minimalna liczba to 0')
+            }
+            if (Number((e.target as HTMLInputElement).value) > 100) {
+                (e.target as HTMLInputElement).value = "100";
+                alert('Maksymalna liczba to 100');
+            }
+        })
+        });
     });
     return (
         <Wrapper>
             <DropdownMenu test={test}></DropdownMenu>
             <WrapperInput>
-                <Input id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
-                <Input id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
-                <Input id="OP" placeholder="Wynik z język nowożytny podstawowy"></Input>
-                <Input id="OR" placeholder="Wynik z język nowożytny rozszerzony"></Input>
-                <Input id="FR" placeholder="Wynik z rozszerzonej fizyki"></Input>
-                <Input id="CR" placeholder="Wynik z rozszerzonej chemii"></Input>
-                <Input id="IR" placeholder="Wynik z rozszerzonej informatyki"></Input>
-                <Input id="BR" placeholder="Wynik z rozszerzonej biologii"></Input>
-                <Input id="R" className="hidden" placeholder="Wynik z egzaminu z rysunku"></Input>
+                <Input name="input" id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
+                <Input name="input" id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
+                <Input name="input" id="OP" placeholder="Wynik z język nowożytny podstawowy"></Input>
+                <Input name="input" id="OR" placeholder="Wynik z język nowożytny rozszerzony"></Input>
+                <Input name="input" id="FR" placeholder="Wynik z rozszerzonej fizyki"></Input>
+                <Input name="input" id="CR" placeholder="Wynik z rozszerzonej chemii"></Input>
+                <Input name="input" id="IR" placeholder="Wynik z rozszerzonej informatyki"></Input>
+                <Input name="input" id="BR" placeholder="Wynik z rozszerzonej biologii"></Input>
+                <Input name="input" id="R" className="hidden" placeholder="Wynik z egzaminu z rysunku"></Input>
                 <Button id="button">Przelicz punkty</Button>
             </WrapperInput>
 
