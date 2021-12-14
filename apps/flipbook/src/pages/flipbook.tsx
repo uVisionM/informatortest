@@ -42,6 +42,7 @@ enum SizeType {
 
 export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
     useEffect(() => {
+        
         const pageFlip = new PageFlip(document.getElementById('flipbook-container')!, {
             width: 800,
             height: 800,
@@ -52,10 +53,11 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             startZIndex: 0,
             mobileScrollSupport: true,
             size: SizeType.STRETCH,
-            minWidth:280,
-            maxWidth:800,
-            minHeight:300,
-            maxHeight:800,
+            minWidth: 280,
+            maxWidth: 800,
+            minHeight: 300,
+            maxHeight: 800,
+            disableFlipByClick: true,
         });
         pages.sort((a, b) => a.changedToMatter.pageNumber - b.changedToMatter.pageNumber);
 
@@ -96,9 +98,9 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             loc!.innerHTML = (pageFlip.getCurrentPageIndex() + 1).toString();
         })
         pageFlip.loadFromHTML(document.querySelectorAll('.page')); 
-        
-    });
 
+
+    });
     return (
         <Wrapper>
             <div className="stop-scrolling max-w-full">
