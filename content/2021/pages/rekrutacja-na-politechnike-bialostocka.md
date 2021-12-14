@@ -12,11 +12,11 @@ Chcesz zostać studentem Politechniki Białostockiej? Przejdź proces rekrutacji
 Centrum Rekrutacji i Wspierania Edukacji Politechniki Białostockiej
 ul. Zwierzyniecka 16, I piętro, pokój P1/7 oraz P1/8 15-333 Białystok
 tel. +48 85 746 71 47, +48 85 746 71 48
-e-mail: rekrutacja@pb.edu.pl  
+e-mail: rekrutacja@pb.edu.pl
 Niezbędne informacje znajdziesz również na stronie
 [pb.edu.pl/kandydaci.](https://pb.edu.pl/kandydaci)
 
-🔍 zapoznaj się z ofertą kierunków
+![lupa](content/2021/pages/images/lupa.png) zapoznaj się z ofertą kierunków
 
 💻 zarejestruj się w systemie Internetowej Rejestracji Kandydatów irk.pb.edu.pl i wprowadź dane osobowe
 

@@ -8,7 +8,8 @@ import styled from '@emotion/styled';
 import { Header }  from './header'
 import { Footer } from './footer'
 import { Socialmedia } from './socialmedia';
-
+import { Graduate } from '@/ssg/graduate';
+import { GraduateSlider } from './graduatesslider';
 const Napis = styled.div`
     width:50%;
     margin-top: 30px;
@@ -22,7 +23,7 @@ const Napis = styled.div`
     text-align:center;
     padding: 10px;
 `
-const projectsPage = ({ content, test }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const projectsPage = ({ content, test, graduate }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <div>
             <Header></Header>
@@ -30,6 +31,7 @@ const projectsPage = ({ content, test }: InferGetStaticPropsType<typeof getStati
             <FlipBook pages={content}></FlipBook>
             <Napis>Przelicz swoje punkty !</Napis>
             <HParser test={test} />
+            <GraduateSlider graduate={graduate}></GraduateSlider>
             <Napis>Sprawdź nas!</Napis>
             <Socialmedia></Socialmedia>
             <Footer></Footer>
@@ -42,6 +44,7 @@ export const getStaticProps = () => {
         props: {
             content: getFlipBook(),
             test: LParser(),
+            graduate: Graduate(),
         },
     };
 };
