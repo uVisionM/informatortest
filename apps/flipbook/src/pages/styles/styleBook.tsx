@@ -23,7 +23,8 @@ export const Wrapper = styled.div`
         margin-right: auto;
         margin-left: auto;
         margin-bottom: 25px;
-    }
+}
+
     .page {
         background-color: white;
         border: solid 1px #012404;

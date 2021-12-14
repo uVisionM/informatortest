@@ -51,6 +51,7 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             flippingTime: 800,
             autoSize: true,
             startZIndex: 0,
+            swipeDistance: 15,
             mobileScrollSupport: true,
             size: SizeType.STRETCH,
             minWidth: 280,
