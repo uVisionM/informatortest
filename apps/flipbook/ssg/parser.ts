@@ -19,15 +19,18 @@ export const LParser = () => {
             realPath = path.join(path2, adf2);
             const path3e = fs.readdirSync(realPath);     
             path3e.map((adf3) => {
-                realPath = path.join(path2, adf2, adf3);
-                slug.push(adf3.replace('.md', ''));
-                dir.push(adf1);
-                const fileContents = fs.readFileSync(realPath).toString('utf-8');
-                const { data: changedToMatter, content } = matter(fileContents);
-                const dirty = marked(content);
-                const clean = DOMPurify.sanitize(dirty);
-                changed.push(changedToMatter);
-                cleaned.push(clean)
+                if (path.extname(adf3) == ".md")
+                {
+                        realPath = path.join(path2, adf2, adf3);
+                        slug.push(adf3.replace('.md', ''));
+                        dir.push(adf1);
+                        const fileContents = fs.readFileSync(realPath).toString('utf-8');
+                        const { data: changedToMatter, content } = matter(fileContents);
+                        const dirty = marked(content);
+                        const clean = DOMPurify.sanitize(dirty);
+                        changed.push(changedToMatter);
+                        cleaned.push(clean)
+                }
             });
         })
         return {

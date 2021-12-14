@@ -9,7 +9,7 @@ interface IFlipBook {
         changedToMatter: {
             [key: string]: any;
         };
-    }>;
+    } | null>;
 }
 
 const Btn = styled.button`
@@ -59,7 +59,7 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             maxHeight: 800,
             disableFlipByClick: true,
         });
-        pages.sort((a, b) => a.changedToMatter.pageNumber - b.changedToMatter.pageNumber);
+        pages.sort((a, b) => a?.changedToMatter.pageNumber - b?.changedToMatter.pageNumber);
 
         let loc = document.getElementById('page-storage')
 
@@ -71,7 +71,7 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages }) => {
             page.className = 'page'
             pageContent.className = 'page-content'
             pageText.className = 'page-text'
-            pageText.innerHTML = pages[i].clean
+            pageText.innerHTML = pages[i]?.clean
             pageContent.appendChild(pageText)
             page.appendChild(pageContent)
             loc!.appendChild(page)
