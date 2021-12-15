@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { DropdownMenu } from "./dropdown";
 import { Wrapper, WrapperInput, WrapperText, Input, Button } from '../../styles/styleParser';
+
 const Parser = (q: string, subjects: Array<{ symbol: string; result: number }>) => {
     let s = q;
 
@@ -33,6 +34,7 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
         { symbol: 'OR', result: 0 }, //Język obcy nowożytny roz. (input)
     ];
     useEffect(() => {
+
         const btn = document.getElementById('button');
         btn!.addEventListener('click', () => {
             const wzor = document.getElementById('wzor')!.innerHTML;
@@ -82,9 +84,43 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
         })
         });
     });
+
     return (
         <Wrapper>
-            <DropdownMenu test={test}></DropdownMenu>
+            <div className="flex flex-col">
+                <DropdownMenu test={test}></DropdownMenu>
+                <div id="specwrap" className="flex flex-col hidden">
+                    <div className="flex flex-row gap-2 justify-center">
+                        Specjalizacje na kierunku: <div className="font-black" id="nazwa1"></div>
+                    </div>
+                    <div className="flex flex-col mx-auto" id="spec"></div>
+                </div>
+                <div id="rodzaj"></div>
+                <table id="table" className="hidden">
+                    <caption>Oferta edukacyjna: </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">STUDIA I STOPNIA</th>
+                            <th scope="col">STUDIA II STOPNIA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Stacjonarne</th>
+                            <td className="text-center" id="engineering-stationary"></td>
+                            <td className="text-center" id="master-stationary"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Niestacjonarne</th>
+                            <td className="text-center" id="master-partTime"></td>
+                            <td className="text-center" id="engineering-partTime"></td>
+                        </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+
             <WrapperInput>
                 <Input name="input" id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
                 <Input name="input" id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
