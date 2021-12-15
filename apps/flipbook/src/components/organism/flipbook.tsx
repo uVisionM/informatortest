@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { PageFlip } from 'page-flip';
 import { useEffect } from 'react';
 import { Wrapper, Btn, LogoPB } from '../../styles/styleBook';
