@@ -2,14 +2,14 @@ import { getFlipBook } from '@/ssg/flipbookcontent';
 import { LParser } from '@/ssg/parser';
 import { InferGetStaticPropsType } from 'next';
 import React from 'react';
-import { FlipBook } from './flipbook';
-import { HParser } from './parser'
+import { FlipBook } from '../components/organism/flipbook';
+import { HParser } from '../components/organism/parser'
 import styled from '@emotion/styled';
-import { Header }  from './header'
-import { Footer } from './footer'
-import { Socialmedia } from './socialmedia';
+import { Header }  from '../components/atoms/header'
+import { Footer } from '../components/atoms/footer'
+import { Socialmedia } from '../components/atoms/socialmedia';
 import { Graduate } from '@/ssg/graduate';
-import { GraduateSlider } from './graduatesslider';
+import { GraduateSlider } from '../components/organism/graduatesslider';
 const Napis = styled.div`
     width:50%;
     margin-top: 30px;
@@ -31,6 +31,7 @@ const projectsPage = ({ content, test, graduate }: InferGetStaticPropsType<typeo
             <FlipBook pages={content}></FlipBook>
             <Napis>Przelicz swoje punkty !</Napis>
             <HParser test={test} />
+            <Napis>Nasi absolwenci!</Napis>
             <GraduateSlider graduate={graduate}></GraduateSlider>
             <Napis>Sprawdź nas!</Napis>
             <Socialmedia></Socialmedia>
