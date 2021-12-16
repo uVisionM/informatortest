@@ -1,16 +1,13 @@
 import { getFlipBook } from '@/ssg/flipbookcontent';
 import { LParser } from '@/ssg/parser';
 import { InferGetStaticPropsType } from 'next';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FlipBook } from '../components/organism/flipbook';
-import { HParser } from '../components/organism/parser'
 import styled from '@emotion/styled';
 import { Header }  from '../components/atoms/header'
 import { Footer } from '../components/atoms/footer'
 import { Socialmedia } from '../components/atoms/socialmedia';
 import { Graduate } from '@/ssg/graduate';
-import { GraduateSlider } from '../components/organism/graduatesslider';
-import ReactDOM from 'react-dom';
 import { getScienceContent } from '@/ssg/science';
 const Napis = styled.div`
     width:50%;
@@ -31,8 +28,6 @@ const projectsPage = ({ content, test, graduate, science }: InferGetStaticPropsT
             <Header></Header>
             <Napis>Informator</Napis>
             <FlipBook pages={content} test={test} graduate={graduate} science={science}></FlipBook>
-            <Napis>Nasi absolwenci!</Napis>
-            <GraduateSlider graduate={graduate}></GraduateSlider>
             <Napis>Sprawdź nas!</Napis>
             <Socialmedia></Socialmedia>
             <Footer></Footer>

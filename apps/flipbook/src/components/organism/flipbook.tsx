@@ -2,9 +2,7 @@ import { PageFlip } from 'page-flip';
 import { useEffect } from 'react';
 import { Wrapper, Btn, LogoPB } from '../../styles/styleBook';
 import { MarkdownContentPages }from '../../styles/styleMD';
-import ReactDOM from 'react-dom'
 import { HParser } from './parser';
-import pages from '@/src/pages';
 interface IFlipBook {
     pages: Array<
         | {
@@ -66,18 +64,29 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         let loc = document.getElementById('page-storage')
         for (let i = 0; i < pages.length; i++)
         {
+            if(i>=0)
+            {
             let page = document.createElement('div');
             let pageContent = document.createElement('div');
             let pageText = document.createElement('div');
             page.className = 'page';
-            pageContent.className = 'page-content';
-            pageText.className = 'page-text';
+            pageContent.className = 'flex ml-4';
             pageText.innerHTML = pages[i]?.clean;
             pageContent.appendChild(pageText);
             page.appendChild(pageContent);
             loc!.appendChild(page);
-        
+            }
         }
+        let page = document.createElement('div');
+        let pageContent = document.createElement('div');
+        let pageText = document.createElement('div');
+        page.className = 'page';
+        pageContent.className = "bg-pb w-full h-full"
+        pageText.className = 'text-white text-xl text-center';
+        pageText.innerHTML = "Nasi Absolwenci!"
+        pageContent.appendChild(pageText);
+        page.appendChild(pageContent);
+        loc!.appendChild(page);
         graduate.map((g)=>{
             let page = document.createElement('div');
             let pageContent = document.createElement('div');
@@ -85,32 +94,41 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
             let pageImg = document.createElement('img');
             page.className = 'page';
             pageContent.className = 'page-content';
-            pageText.className = 'page-text';
             pageText.innerHTML = g!.clean
-            pageImg.className = 'w-1/3 h-1/3 justify-center';
+            pageImg.className = 'w-96 h-auto mx-auto';
             pageImg.src = g!.changedToMatter.image;
             pageContent.appendChild(pageImg)
             pageContent.appendChild(pageText);
             page.appendChild(pageContent);
             loc!.appendChild(page);
         })
+        page = document.createElement('div');
+        pageContent = document.createElement('div');
+        pageText = document.createElement('div');
+        page.className = 'page';
+        pageContent.className = "bg-pb w-full h-full"
+        pageText.className = 'text-white text-xl text-center';
+        pageText.innerHTML = "Koła naukowe na naszej uczelni!"
+        pageContent.appendChild(pageText);
+        page.appendChild(pageContent);
+        loc!.appendChild(page);
         science.map((g)=>{
-            let page = document.createElement('div');
-            let pageContent = document.createElement('div');
-            let pageText = document.createElement('div');
-            page.className = 'page';
-            pageContent.className = 'page-content';
-            pageText.className = 'page-text';
-            g.changed.map((ch: any)=>{
-                pageText.innerHTML = ch.name;
-            })
-            g.cleaned.map((c)=>{
-                pageText.innerHTML += c;
-
-            })
-            pageContent.appendChild(pageText);
-            page.appendChild(pageContent);
-            loc!.appendChild(page);
+            for (let i = 0; i < g.cleaned.length; i++)
+            {
+                let page = document.createElement('div');
+                let pageContent = document.createElement('div');
+                let pageText = document.createElement('div');
+                let pageTextHeader = document.createElement('h1');
+                page.className = 'page';
+                pageContent.className = 'page-content';
+                pageTextHeader.className = '';
+                pageTextHeader.innerHTML = g.changed[i].name;
+                pageText.innerHTML = g.cleaned[i]
+                pageContent.appendChild(pageTextHeader);
+                pageContent.appendChild(pageText);
+                page.appendChild(pageContent);
+                loc!.appendChild(page);
+            }
         })
         pageFlip.on('init', () =>{
             loc = document.getElementById('page-total');
@@ -118,9 +136,8 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         })
         pageFlip.on('changeState', () => {
             loc = document.getElementById('page-current');
-            loc!.innerHTML = (pageFlip.getCurrentPageIndex()+1).toString();        
+            loc!.innerHTML = (pageFlip.getCurrentPageIndex()+1).toString();
         });
-        
         let prev = document.getElementById('prev');
         prev?.addEventListener('click', () => {
             pageFlip.turnToPrevPage()
@@ -169,7 +186,6 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
                 </div>
             </div>
             <HParser test={test} />
-
         </Wrapper>
     );
 };
