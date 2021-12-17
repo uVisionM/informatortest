@@ -1,6 +1,6 @@
 import { PageFlip } from 'page-flip';
 import { useEffect } from 'react';
-import { Wrapper, Btn, LogoPB } from '../../styles/styleBook';
+import { Wrapper, Btn, LogoPB, Godlo } from '../../styles/styleBook';
 import { MarkdownContentPages }from '../../styles/styleMD';
 import { HParser } from './parser';
 interface IFlipBook {
@@ -70,7 +70,7 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
             let pageContent = document.createElement('div');
             let pageText = document.createElement('div');
             page.className = 'page';
-            pageContent.className = 'flex ml-4';
+            pageContent.className = 'flex flex-col ml-4 w-[95%]';
             pageText.innerHTML = pages[i]?.clean;
             pageContent.appendChild(pageText);
             page.appendChild(pageContent);
@@ -81,8 +81,8 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         let pageContent = document.createElement('div');
         let pageText = document.createElement('div');
         page.className = 'page';
-        pageContent.className = "bg-pb w-full h-full"
-        pageText.className = 'text-white text-xl text-center';
+        pageContent.className = 'bg-pb w-full h-full flex flex-col py-[49%]';
+        pageText.className = 'text-white text-4xl text-center';
         pageText.innerHTML = "Nasi Absolwenci!"
         pageContent.appendChild(pageText);
         page.appendChild(pageContent);
@@ -93,9 +93,10 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
             let pageText = document.createElement('div');
             let pageImg = document.createElement('img');
             page.className = 'page';
-            pageContent.className = 'page-content';
+            pageContent.className = 'flex flex-col ml-4 w-[95%]';
+            pageText.className = 'mt-4'
             pageText.innerHTML = g!.clean
-            pageImg.className = 'w-96 h-auto mx-auto';
+            pageImg.className = 'w-96 h-auto mx-auto mt-4';
             pageImg.src = g!.changedToMatter.image;
             pageContent.appendChild(pageImg)
             pageContent.appendChild(pageText);
@@ -106,8 +107,8 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         pageContent = document.createElement('div');
         pageText = document.createElement('div');
         page.className = 'page';
-        pageContent.className = "bg-pb w-full h-full"
-        pageText.className = 'text-white text-xl text-center';
+        pageContent.className = 'bg-pb w-full h-full flex flex-col py-[49%]';
+        pageText.className = 'text-white text-4xl text-center';
         pageText.innerHTML = "Koła naukowe na naszej uczelni!"
         pageContent.appendChild(pageText);
         page.appendChild(pageContent);
@@ -120,8 +121,8 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
                 let pageText = document.createElement('div');
                 let pageTextHeader = document.createElement('h1');
                 page.className = 'page';
-                pageContent.className = 'page-content';
-                pageTextHeader.className = '';
+                pageContent.className = 'flex flex-col ml-4 w-[95%]';
+                pageTextHeader.className = 'flex justify-center';
                 pageTextHeader.innerHTML = g.changed[i].name;
                 pageText.innerHTML = g.cleaned[i]
                 pageContent.appendChild(pageTextHeader);
@@ -154,14 +155,18 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         })
         pageFlip.loadFromHTML(document.querySelectorAll('.page')); 
     });
+    const logo = 'https://pb.edu.pl/wp-content/themes/pb/assets/img/logo-pb-w.png';
+    const godlo = 'https://pb.edu.pl/wp-content/themes/pb/assets/img/godlo.png';
     return (
         <Wrapper>
             <div className="stop-scrolling max-w-full">
                 <MarkdownContentPages>
                     <div id="flipbook-container">
                         <div className="page page-cover" data-density="hard">
-                            <h1>
-                                <LogoPB src="images/logo_pb.png" />
+                            <h1 className="flex flex-row">
+                                <Godlo src={godlo} />
+                                <div className="border-l-2 h-24 mt-[39%]"></div>
+                                <LogoPB src={logo} />
                             </h1>
                         </div>
 

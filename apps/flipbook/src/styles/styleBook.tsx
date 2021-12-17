@@ -1,9 +1,13 @@
 import styled from "@emotion/styled";
 
 export const LogoPB: React.FC<{src: string}> = ({src}) => <img
-    className = "object-contain" 
+    className = "ml-3 object-contain" 
     src={src} />
 
+export const Godlo: React.FC<{ src: string }> = ({ src }) => <img
+    className="mr-3 object-contain"
+    src={src} />
+    
 export const Btn = styled.button`
     color: white;
     background-color: #012404;
