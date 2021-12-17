@@ -2,10 +2,14 @@ import styled from '@emotion/styled';
 
 const MarkdownComponent = styled.div`
     width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    line-height: 1.5;
     h1 {
         color: #012404;
         font-size: 1.875rem;
         font-weight: bold;
+        text-align:left;
     }
     h2 {
         color: #012404;
@@ -34,7 +38,8 @@ const MarkdownComponent = styled.div`
     }
     p {
         color: #292929;
-        font-size: large;
+        font-size: normal;
+        line-height: 1.75;
         & > img {
             margin: 0 auto;
             padding-top: 2rem;
@@ -78,8 +83,10 @@ const MarkdownComponent = styled.div`
         padding: 1rem;
     }
     ul {
-        padding: 1rem 2rem;
+        padding: 0 2rem;
         font-family: inherit;
+        font-weight: 200;
+        line-height: 1.75;
     }
     li::marker {
         content: '•';
@@ -100,15 +107,18 @@ const MarkdownComponent = styled.div`
     }
     ol {
         padding: 1rem 2rem;
+       
         & > li {
             counter-increment: li;
             & > ol {
                 padding: 0 1rem;
+                
             }
         }
         & > li::marker {
             content: counter(li);
             color: #012404;
+            font-weight:700;
         }
     }
 `;

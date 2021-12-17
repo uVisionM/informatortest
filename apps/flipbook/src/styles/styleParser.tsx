@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
     flex-direction: row;
     gap: 20px;
     justify-content: center;
+    .hidden{
+        display:none;
+    }
 `;
 export const WrapperInput = styled.div`
     display: flex;

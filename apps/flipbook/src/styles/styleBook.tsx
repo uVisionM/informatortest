@@ -1,9 +1,13 @@
 import styled from "@emotion/styled";
 
 export const LogoPB: React.FC<{src: string}> = ({src}) => <img
-    className = "object-contain" 
+    className = "ml-3 object-contain" 
     src={src} />
 
+export const Godlo: React.FC<{ src: string }> = ({ src }) => <img
+    className="mr-3 object-contain"
+    src={src} />
+    
 export const Btn = styled.button`
     color: white;
     background-color: #012404;
@@ -20,7 +24,6 @@ export const Btn = styled.button`
 `;
 
 export const Wrapper = styled.div`
-
     .stop-scrolling {
         height: 100%;
         overflow: hidden;
@@ -41,41 +44,12 @@ export const Wrapper = styled.div`
         margin-right: auto;
         margin-left: auto;
         margin-bottom: 25px;
-}
+    }
 
     .page {
         background-color: white;
         border: solid 1px #012404;
         overflow: auto;
-        .page-content {
-            width: 95%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: stretch;
-            padding-left: 1rem;
-            .page-header {
-                font-size: 100%;
-                text-transform: uppercase;
-                text-align: center;
-            }
-
-            .page-image {
-                height: 100%;
-                background-size: contain;
-                background-position: center center;
-                background-repeat: no-repeat;
-            }
-
-            .page-footer {
-                height: 30px;
-                border-top: solid 1px #012404;
-                font-size: 80%;
-                color: #012404;
-                border-bottom: 20px;
-            }
-        }
         &.--left {
             // for left page (property will be added automatically)
             border-right: 0;
@@ -109,7 +83,6 @@ export const Wrapper = styled.div`
                 margin-left: auto;
                 margin-right: auto;
                 margin-top: 5rem;
-                
             }
 
             &.page-cover-top {
