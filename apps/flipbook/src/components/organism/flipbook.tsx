@@ -1,8 +1,12 @@
+import { loadavg } from 'os';
 import { PageFlip } from 'page-flip';
 import { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { Wrapper, Btn, LogoPB, Godlo } from '../../styles/styleBook';
 import { MarkdownContentPages }from '../../styles/styleMD';
 import { HParser } from './parser';
+const logo = 'https://pb.edu.pl/wp-content/themes/pb/assets/img/logo-pb-w.png';
+const godlo = 'https://pb.edu.pl/wp-content/themes/pb/assets/img/godlo.png';
 interface IFlipBook {
     pages: Array<
         | {
@@ -40,6 +44,16 @@ enum SizeType {
     /** Dimensions are calculated based on the parent element */
     STRETCH = "stretch"
 }
+const Front = () => {
+    return(
+    <h1 className="flex flex-row">
+        <Godlo src={godlo} />
+        <div className="border-l-2 h-24 mt-[39%]"></div>
+        <LogoPB src={logo} />
+    </h1>
+    )
+}
+
 export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }) => {
     useEffect(() => {
         const pageFlip = new PageFlip(document.getElementById('flipbook-container')!, {
@@ -62,9 +76,26 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         });
         pages.sort((a, b) => a?.changedToMatter.pageNumber - b?.changedToMatter.pageNumber);
         let loc = document.getElementById('page-storage')
+        let page = document.createElement('div');
+        let pageContent = document.createElement('div');
+        let pageText = document.createElement('div');
+        page.className = 'page';
+        pageContent.className = 'w-full h-full flex flex-col';
+        pageText.className ='mt-16'
+        page.addEventListener('mouseover', (e) => {
+            console.log(e)
+            if ((e.target as HTMLInputElement).name === 'input') {
+                pageFlip.getSettings().useMouseEvents = false;
+                pageFlip.updateFromHtml(document.querySelectorAll('.page'));
+            }
+        })
+        ReactDOM.render(<HParser test={test} />, pageText);
+        pageContent.appendChild(pageText);
+        page.appendChild(pageContent);
+        loc!.appendChild(page);
         for (let i = 0; i < pages.length; i++)
         {
-            if(i>=0)
+            if(i >= 0)
             {
             let page = document.createElement('div');
             let pageContent = document.createElement('div');
@@ -72,18 +103,25 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
             page.className = 'page';
             pageContent.className = 'flex flex-col ml-4 w-[95%]';
             pageText.innerHTML = pages[i]?.clean;
+            page.addEventListener('mouseover', (e) => {
+                pageFlip.getSettings().useMouseEvents = true;
+                pageFlip.updateFromHtml(document.querySelectorAll('.page'));
+            })
             pageContent.appendChild(pageText);
             page.appendChild(pageContent);
             loc!.appendChild(page);
             }
         }
-        let page = document.createElement('div');
-        let pageContent = document.createElement('div');
-        let pageText = document.createElement('div');
+        page = document.createElement('div');
+        pageContent = document.createElement('div');
+        pageText = document.createElement('div');
+        let pageText1 = document.createElement('div');
         page.className = 'page';
-        pageContent.className = 'bg-pb w-full h-full flex flex-col py-[49%]';
+        pageContent.className = 'bg-pb w-full h-full flex flex-col';
         pageText.className = 'text-white text-4xl text-center';
         pageText.innerHTML = "Nasi Absolwenci!"
+        ReactDOM.render(<Front />, pageText1);
+        pageText.appendChild(pageText1)
         pageContent.appendChild(pageText);
         page.appendChild(pageContent);
         loc!.appendChild(page);
@@ -138,16 +176,22 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         pageFlip.on('changeState', () => {
             loc = document.getElementById('page-current');
             loc!.innerHTML = (pageFlip.getCurrentPageIndex()+1).toString();
+            pageFlip.getSettings().useMouseEvents = true;
+            pageFlip.updateFromHtml(document.querySelectorAll('.page'));
         });
         let prev = document.getElementById('prev');
         prev?.addEventListener('click', () => {
             pageFlip.turnToPrevPage()
+            pageFlip.getSettings().useMouseEvents = true;
+            pageFlip.updateFromHtml(document.querySelectorAll('.page'));
             loc = document.getElementById('page-current');
             loc!.innerHTML = (pageFlip.getCurrentPageIndex() + 1).toString();
         })
         let next = document.getElementById('next');
         next?.addEventListener('click', () => {
             if (pageFlip.getCurrentPageIndex() < pageFlip.getPageCount() - 2) {
+                pageFlip.getSettings().useMouseEvents = true;
+                pageFlip.updateFromHtml(document.querySelectorAll('.page'));
                 pageFlip.turnToNextPage();
             }
             loc = document.getElementById('page-current');
@@ -155,8 +199,6 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         })
         pageFlip.loadFromHTML(document.querySelectorAll('.page')); 
     });
-    const logo = 'https://pb.edu.pl/wp-content/themes/pb/assets/img/logo-pb-w.png';
-    const godlo = 'https://pb.edu.pl/wp-content/themes/pb/assets/img/godlo.png';
     return (
         <Wrapper>
             <div className="stop-scrolling max-w-full">
@@ -164,16 +206,16 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
                     <div id="flipbook-container">
                         <div className="page page-cover" data-density="hard">
                             <h1 className="flex flex-row">
-                                <Godlo src={godlo} />
-                                <div className="border-l-2 h-24 mt-[39%]"></div>
-                                <LogoPB src={logo} />
+                                <Front />
                             </h1>
                         </div>
 
                         <div id="page-storage"></div>
                         <div className="page page-cover page-cover-bottom" data-density="hard">
                             <div className="page-content">
-                                <h1>THE END</h1>
+                                <h1>
+                                    <Front />
+                                </h1>
                             </div>
                         </div>
                     </div>
@@ -190,7 +232,6 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
                     </Btn>
                 </div>
             </div>
-            <HParser test={test} />
         </Wrapper>
     );
 };

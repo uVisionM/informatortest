@@ -12,7 +12,7 @@ export const getScienceContent = () => {
         const path2 = path.join(process.cwd(), '..', '..', 'content', '2021', 'kola', 'wydzialy', adf);
         const path2e = fs.readdirSync(path2);
         let changed = Array<any>();
-        let cleaned = Array<any>();
+        let cleaned = Array<string>();
         path2e.map((adf1)=>{
             if (path.extname(adf1) == '.md') {
                 const realPath = path.join(path2, adf1);
