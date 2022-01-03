@@ -16,10 +16,11 @@ export const StyleMenu = styled.div`
     }
 
     .dropdown {
-        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
         padding: 0;
         list-style: none;
-        width: 100%;
+        width: 15rem;
         background-color: #012404;
     }
 

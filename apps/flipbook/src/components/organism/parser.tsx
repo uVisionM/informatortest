@@ -86,67 +86,67 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
     });
 
     return (
-        <Wrapper>
-            <div className="flex flex-col">
-                <DropdownMenu test={test}></DropdownMenu>
-                <div id="specwrap" className="flex flex-col hidden">
-                    <div className="flex flex-row gap-2 justify-center">
-                        Specjalizacje na kierunku: <div className="font-black" id="nazwa1"></div>
+        <div className="flex flex-col">
+            <Wrapper>
+                <div className="flex flex-col">
+                    <DropdownMenu test={test}></DropdownMenu>
+                    <div id="specwrap" className="flex flex-col hidden">
+                        <div className="flex flex-row gap-2 justify-center">
+                            Specjalizacje na kierunku: <div className="font-black" id="nazwa1"></div>
+                        </div>
+                        <div className="flex flex-col mx-auto" id="spec"></div>
                     </div>
-                    <div className="flex flex-col mx-auto" id="spec"></div>
+                    <div id="rodzaj"></div>
+                    <table id="table" className="hidden">
+                        <caption>Oferta edukacyjna: </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">STUDIA I STOPNIA</th>
+                                <th scope="col">STUDIA II STOPNIA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Stacjonarne</th>
+                                <td className="text-center" id="engineering-stationary"></td>
+                                <td className="text-center" id="master-stationary"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Niestacjonarne</th>
+                                <td className="text-center" id="master-partTime"></td>
+                                <td className="text-center" id="engineering-partTime"></td>
+                            </tr>
+                        </tbody>
+                        <tfoot></tfoot>
+                    </table>
                 </div>
-                <div id="rodzaj"></div>
-                <table id="table" className="hidden">
-                    <caption>Oferta edukacyjna: </caption>
-                    <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">STUDIA I STOPNIA</th>
-                            <th scope="col">STUDIA II STOPNIA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Stacjonarne</th>
-                            <td className="text-center" id="engineering-stationary"></td>
-                            <td className="text-center" id="master-stationary"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Niestacjonarne</th>
-                            <td className="text-center" id="master-partTime"></td>
-                            <td className="text-center" id="engineering-partTime"></td>
-                        </tr>
-                    </tbody>
-                    <tfoot></tfoot>
-                </table>
-            </div>
-
-            <WrapperInput>
-                <Input name="input" id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
-                <Input name="input" id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
-                <Input name="input" id="OP" placeholder="Wynik z język nowożytny podstawowy"></Input>
-                <Input name="input" id="OR" placeholder="Wynik z język nowożytny rozszerzony"></Input>
-                <Input name="input" id="FR" placeholder="Wynik z rozszerzonej fizyki"></Input>
-                <Input name="input" id="CR" placeholder="Wynik z rozszerzonej chemii"></Input>
-                <Input name="input" id="IR" placeholder="Wynik z rozszerzonej informatyki"></Input>
-                <Input name="input" id="BR" placeholder="Wynik z rozszerzonej biologii"></Input>
-                <Input name="input" id="R" className="hidden" placeholder="Wynik z egzaminu z rysunku"></Input>
-                <Button id="button">Przelicz punkty</Button>
-            </WrapperInput>
-
-            <WrapperText>
-                <div className="flex flex-row bg-pb p-2">
-                    Wybrany kierunek:<div className="ml-1" id="nazwa"></div>
-                </div>
-                <div className="flex flex-row bg-pb p-2">
-                    Wzór na wybrany kierunek: <div className="ml-1" id="wzor"></div>
-                </div>
-                <div className="flex flex-row bg-pb p-2">
-                    Ilość uzyskanych punktów:<div className="ml-1" id="wynik"></div>
-                </div>
-                <div className="flex flex-row p-2" id="opis"></div>
-            </WrapperText>
-        </Wrapper>
+                <WrapperInput>
+                    <Input name="input" id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
+                    <Input name="input" id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
+                    <Input name="input" id="OP" placeholder="Wynik z język nowożytny podstawowy"></Input>
+                    <Input name="input" id="OR" placeholder="Wynik z język nowożytny rozszerzony"></Input>
+                    <Input name="input" id="FR" placeholder="Wynik z rozszerzonej fizyki"></Input>
+                    <Input name="input" id="CR" placeholder="Wynik z rozszerzonej chemii"></Input>
+                    <Input name="input" id="IR" placeholder="Wynik z rozszerzonej informatyki"></Input>
+                    <Input name="input" id="BR" placeholder="Wynik z rozszerzonej biologii"></Input>
+                    <Input name="input" id="R" className="hidden" placeholder="Wynik z egzaminu z rysunku"></Input>
+                    <Button id="button">Przelicz punkty</Button>
+                </WrapperInput>
+                <WrapperText>
+                    <div className="flex flex-row bg-pb p-2">
+                        Wybrany kierunek:<div className="ml-1" id="nazwa"></div>
+                    </div>
+                    <div className="flex flex-row bg-pb p-2">
+                        Wzór na wybrany kierunek: <div className="ml-1" id="wzor"></div>
+                    </div>
+                    <div className="flex flex-row bg-pb p-2">
+                        Ilość uzyskanych punktów:<div className="ml-1" id="wynik"></div>
+                    </div>
+                    <div className="flex flex-row p-2" id="opis"></div>
+                </WrapperText>
+            </Wrapper>
+        </div>
     );
     
 };

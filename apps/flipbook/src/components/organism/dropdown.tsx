@@ -22,6 +22,7 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                     let pageText1 = document.createElement('a');
                     pageText1.innerHTML = m[0].toUpperCase() + m.substring(1).replaceAll('_', ' ');
                     pageText.className = m;
+                    pageText1.id="menu"
                     pageText.appendChild(pageText1);
                     prev = m;
                 }
@@ -89,6 +90,7 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                                     }
                                     document.getElementById('table')!.className = '';
                                     document.getElementById('specwrap')!.className = 'flex flex-col';
+                                    document.getElementById('specwrap')!.id = 'specwrap'
                                 }
                                 t.dir.map((m) => {
                                     let hidden = document.getElementById('R');
@@ -112,12 +114,12 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                 loc!.appendChild(pageText2);
             });
         });
-    });
+    }, [test]);
     return (
         <StyleMenu>
             <ul className="dropdown">
                 <li>
-                    <a href="#">Lista kierunków</a>
+                    <a id="menu" href="#">Lista kierunków</a>
                     <ul className="kierunki">
                     
                     </ul>
