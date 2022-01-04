@@ -2,7 +2,6 @@ import { PageFlip } from 'page-flip';
 import { useEffect } from 'react';
 import { Wrapper, Btn, LogoPB, Godlo } from '../../styles/styleBook';
 import { MarkdownContentPages }from '../../styles/styleMD';
-import { HParser } from './parser';
 interface IFlipBook {
     pages: Array<
         | {
@@ -190,7 +189,6 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
                     </Btn>
                 </div>
             </div>
-            <HParser test={test} />
         </Wrapper>
     );
 };

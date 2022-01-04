@@ -9,9 +9,10 @@ import { Footer } from '../components/atoms/footer'
 import { Socialmedia } from '../components/atoms/socialmedia';
 import { Graduate } from '@/ssg/graduate';
 import { getScienceContent } from '@/ssg/science';
+import { HParser } from '../components/organism/parser';
 
 const Napis: React.FC=({children}) => {
-    return <div className="w-1/2 mt-16 mb-16 mx-auto bg-pbbg p-6 text-2xl text-center text-white ">{children}</div>
+    return <div className="w-1/2 mt-16 mb-16 mx-auto bg-pbbg p-4 text-2xl text-center text-white ">{children}</div>
 }
 
 const projectsPage = ({ content, test, graduate, science }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -20,6 +21,8 @@ const projectsPage = ({ content, test, graduate, science }: InferGetStaticPropsT
             <Header></Header>
             <Napis>Informator dla maturzystów</Napis>
             <FlipBook pages={content} test={test} graduate={graduate} science={science}></FlipBook>
+            <Napis>Kalkulator</Napis>
+            <HParser test={test} />
             <Napis>Sprawdź nas!</Napis>
             <Socialmedia></Socialmedia>
             <Footer></Footer>

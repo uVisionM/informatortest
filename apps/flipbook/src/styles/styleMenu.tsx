@@ -17,7 +17,7 @@ export const StyleMenu = styled.div`
 
     .dropdown {
         margin: 0;
-        padding: 0;
+        padding: 2;
         list-style: none;
         width: 100%;
         background-color: #012404;

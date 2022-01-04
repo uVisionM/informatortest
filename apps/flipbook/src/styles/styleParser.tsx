@@ -7,6 +7,9 @@ export const Wrapper = styled.div`
     .hidden{
         display:none;
     }
+    table,tr,th,td {
+        border: 1px solid black;
+    }
 `;
 export const WrapperInput = styled.div`
     display: flex;

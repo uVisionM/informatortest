@@ -51,6 +51,9 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                                 if (
                                     c.name
                                         .toLowerCase()
+                                        .replaceAll('ź', 'z')
+                                        .replaceAll('ó', 'o')
+                                        .replaceAll('ą', 'a')
                                         .replaceAll('ę', 'e')
                                         .replaceAll('ż', 'z')
                                         .replaceAll('ś', 's')
@@ -119,7 +122,6 @@ export const DropdownMenu: React.FC<PFlipBook> = ({ test }) => {
                 <li>
                     <a href="#">Lista kierunków</a>
                     <ul className="kierunki">
-                    
                     </ul>
                 </li>
             </ul>
