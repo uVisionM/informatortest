@@ -9,24 +9,16 @@ import { Footer } from '../components/atoms/footer'
 import { Socialmedia } from '../components/atoms/socialmedia';
 import { Graduate } from '@/ssg/graduate';
 import { getScienceContent } from '@/ssg/science';
-const Napis = styled.div`
-    width:50%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: #012404;
-    color: white;
-    font-family: sans-serif;
-    font-size: 24px;
-    text-align:center;
-    padding: 10px;
-`
+
+const Napis: React.FC=({children}) => {
+    return <div className="w-1/2 mt-16 mb-16 mx-auto bg-pbbg p-6 text-2xl text-center text-white ">{children}</div>
+}
+
 const projectsPage = ({ content, test, graduate, science }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <div>
             <Header></Header>
-            <Napis>Informator</Napis>
+            <Napis>Informator dla maturzystów</Napis>
             <FlipBook pages={content} test={test} graduate={graduate} science={science}></FlipBook>
             <Napis>Sprawdź nas!</Napis>
             <Socialmedia></Socialmedia>
