@@ -2,6 +2,7 @@
 section: Jak obliczyć punkty
 bgcImage: /images
 pageNumber: 26
+id: equation
 ---
 
 # Wzory Rekrutacyjne
