@@ -8,8 +8,12 @@ export const Wrapper = styled.div`
         display:none;
     }
     table,tr,th,td {
-        border: 1px solid black;
+        border: 2px solid black;
     }
+    caption {
+        font-size: 1rem;
+        
+        }
 `;
 export const WrapperInput = styled.div`
     display: flex;
@@ -37,10 +41,10 @@ export const Button = styled.button`
     height: 3rem;
     margin-top: 20px;
     margin-bottom: 40px;
-    border-radius: 5rem;
+    border-radius: 0.5rem;
     border: 2px solid;
     border-color: black;
     :hover {
-        opacity: 0.5;
+        opacity: 0.25;
     }
 `;

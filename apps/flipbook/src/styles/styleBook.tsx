@@ -15,11 +15,12 @@ export const Btn = styled.button`
     width: 5rem;
     margin-top: 20px;
     margin-bottom: 40px;
-    border-radius: 5rem;
+    border-radius: 0.5rem;
     border: 2px solid;
     border-color: black;
+    font-size: small;
     :hover {
-        opacity: 0.5;
+        opacity: 0.25;
     }
 `;
 

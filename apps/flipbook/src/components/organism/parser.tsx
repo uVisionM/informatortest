@@ -90,10 +90,11 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
             <div className="flex flex-col">
                 <DropdownMenu test={test}></DropdownMenu>
                 <div id="specwrap" className="flex flex-col hidden">
-                    <div className="flex flex-row gap-2 justify-center">
-                        Specjalizacje na kierunku: <div className="font-black" id="nazwa1"></div>
+                    <div className="flex flex-row">
+                        Wybrany kierunek to <div className="font-black ml-1" id="nazwa1"></div>.
                     </div>
-                    <div className="flex flex-col mx-auto" id="spec"></div>
+                    <div className="flex flex-row">Specjalizacje dostępne na tym kierunku:</div>
+                    <div className="flex flex-col" id="spec"></div>
                 </div>
                 <div id="rodzaj"></div>
                 <table id="table" className="hidden">
@@ -101,18 +102,18 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
                     <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">STUDIA I STOPNIA</th>
-                            <th scope="col">STUDIA II STOPNIA</th>
+                            <th className="text-sm" scope="col">STUDIA I STOPNIA</th>
+                            <th className="text-sm" scope="col">STUDIA II STOPNIA</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Stacjonarne</th>
+                            <th className="text-sm" scope="row">Stacjonarne</th>
                             <td className="text-center" id="engineering-stationary"></td>
                             <td className="text-center" id="master-stationary"></td>
                         </tr>
                         <tr>
-                            <th scope="row">Niestacjonarne</th>
+                            <th className="text-sm" scope="row">Niestacjonarne</th>
                             <td className="text-center" id="master-partTime"></td>
                             <td className="text-center" id="engineering-partTime"></td>
                         </tr>
@@ -122,15 +123,16 @@ export const HParser: React.FC<PFlipBook> = ({ test }) => {
             </div>
 
             <WrapperInput>
-                <Input name="input" id="MP" placeholder="Wynik z podstawowej matematyki"></Input>
-                <Input name="input" id="MR" placeholder="Wynik z rozszerzonej matematyki"></Input>
-                <Input name="input" id="OP" placeholder="Wynik z język nowożytny podstawowy"></Input>
-                <Input name="input" id="OR" placeholder="Wynik z język nowożytny rozszerzony"></Input>
-                <Input name="input" id="FR" placeholder="Wynik z rozszerzonej fizyki"></Input>
-                <Input name="input" id="CR" placeholder="Wynik z rozszerzonej chemii"></Input>
-                <Input name="input" id="IR" placeholder="Wynik z rozszerzonej informatyki"></Input>
-                <Input name="input" id="BR" placeholder="Wynik z rozszerzonej biologii"></Input>
-                <Input name="input" id="R" className="hidden" placeholder="Wynik z egzaminu z rysunku"></Input>
+                <Input name="input" id="MP" placeholder="Wynik z podstawowej matematyki*"></Input>
+                <Input name="input" id="MR" placeholder="Wynik z rozszerzonej matematyki*"></Input>
+                <Input name="input" id="OP" placeholder="Wynik z język nowożytny podstawowy*"></Input>
+                <Input name="input" id="OR" placeholder="Wynik z język nowożytny rozszerzony*"></Input>
+                <Input name="input" id="FR" placeholder="Wynik z rozszerzonej fizyki*"></Input>
+                <Input name="input" id="CR" placeholder="Wynik z rozszerzonej chemii*"></Input>
+                <Input name="input" id="IR" placeholder="Wynik z rozszerzonej informatyki*"></Input>
+                <Input name="input" id="BR" placeholder="Wynik z rozszerzonej biologii*"></Input>
+                <Input name="input" id="R" className="hidden" placeholder="Wynik z egzaminu z rysunku*"></Input>
+                <div className="flex text-sm">*wyniki podajemy w procentach</div>
                 <Button id="button">Przelicz punkty</Button>
             </WrapperInput>
 

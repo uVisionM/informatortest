@@ -137,7 +137,13 @@ export const FlipBook: React.FC<IFlipBook> = ({ pages, test, graduate, science }
         pageFlip.on('changeState', () => {
             loc = document.getElementById('page-current');
             loc!.innerHTML = (pageFlip.getCurrentPageIndex()+1).toString();
-        });
+            for (let i = 0; i < pages.length; i++)
+            { 
+                if (pages[i].changedToMatter.id === "equation")
+                {
+                    console.log("dupa")
+                }
+                }});
         let prev = document.getElementById('prev');
         prev?.addEventListener('click', () => {
             pageFlip.turnToPrevPage()
